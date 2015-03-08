@@ -18,14 +18,15 @@ def tcpip4_socket(host, port):
         s.connect((host, port))
         yield s
     finally:
-        try:
-            s.shutdown(socket.SHUT_RDWR)
-        except socket.error:
-            pass
-        except OSError:
-            pass
-        finally:
-            s.close()
+      s.close()
+        # try:
+        #     s.shutdown(socket.SHUT_RDWR)
+        # except socket.error:
+        #     pass
+        # except OSError:
+        #     pass
+        # finally:
+        #     s.close()
 
 @contextmanager
 def http_connection(host, port):
